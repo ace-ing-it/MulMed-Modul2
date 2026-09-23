@@ -191,12 +191,27 @@
         margin-top: 0;
     }
 
-    #dragItem {
-        width: 180px;
-        cursor: grab;
-        border-radius: 8px;
-        margin-top: 20px;
-    }
+   #dragItem {
+    width: 180px;
+    cursor: grab;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#dragItem:active {
+    cursor: grabbing;
+}
+
+.drop-area {
+    flex: 1;
+    min-width: 250px;
+    min-height: 180px;
+    border: 3px dashed #457b9d;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8fbfc;
+}
 
     footer {
         background-color: #1d3557;
@@ -405,7 +420,7 @@
 
             <source src="audio/Here Come The Cats.ogg" type="audio/ogg">
 
-           <source src="audio/girl-like-me.mp3" type="audio/mpeg">
+           <source src="./audio/girl-like-me.mp3" type="audio/mpeg">
 
             Browser Anda tidak mendukung elemen audio.
 
@@ -513,7 +528,7 @@
             height="350"
             controls>
 
-            <source src="video/jvke-her.mp4" type="video/mp4">
+            <source src="./video/jvke-her.mp4" type="video/mp4">
 
             <source src="video/Diamond Jack - Rachel Kim.webm" type="video/webm">
 
@@ -794,42 +809,37 @@ navigator.geolocation.getCurrentPosition(showPosition); </pre>
             dipindahkan dengan cara menyeretnya.
         </p>
 
-       <h3>Contoh Drag and Drop</h3>
+      <h3>Contoh Drag and Drop</h3>
 
 <div class="drag-container">
 
-    <div
-        class="drop-area"
-        id="box1"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)">
+    <div class="drop-area"
+         id="box1"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
 
         <h3>Area 1</h3>
 
-        <p>
-            Seret gambar dari sini.
-        </p>
+        <p>Seret gambar dari sini.</p>
 
         <img
             id="dragItem"
-            src="image/Hollyberry.png"
+            src="./image/Hollyberry.png"
             alt="Gambar Drag and Drop"
             draggable="true"
             ondragstart="drag(event)">
 
     </div>
 
-    <div
-        class="drop-area"
-        id="box2"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)">
+
+    <div class="drop-area"
+         id="box2"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
 
         <h3>Area 2</h3>
 
-        <p>
-            Letakkan gambar di sini.
-        </p>
+        <p>Letakkan gambar di sini.</p>
 
     </div>
 
@@ -870,22 +880,24 @@ navigator.geolocation.getCurrentPosition(showPosition); </pre>
         <pre>
 
 function allowDrop(ev) {
-ev.preventDefault();
+    ev.preventDefault();
 }
 
 function drag(ev) {
-ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.effectAllowed = "move";
+    ev.dataTransfer.setData("text/plain", ev.target.id);
 }
 
 function drop(ev) {
-ev.preventDefault();
+    ev.preventDefault();
 
-var data = ev.dataTransfer.getData("text");
+    var id = ev.dataTransfer.getData("text/plain");
+    var item = document.getElementById(id);
 
-ev.target.appendChild(
-    document.getElementById(data)
-);
-
+    if (item) {
+        ev.currentTarget.appendChild(item);
+    }
+}
 } </pre>
 
     </section>
