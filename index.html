@@ -399,7 +399,6 @@
             untuk menyematkan audio pada halaman web.
         </p>
 
-
         <h3>Contoh Audio</h3>
 
         <audio controls>
@@ -412,7 +411,6 @@
 
         </audio>
 
-
         <div class="info-box">
 
             <strong>Catatan:</strong>
@@ -421,7 +419,6 @@
             dengan file <code>index.html</code>.
 
         </div>
-
 
         <h3>Format Audio HTML5</h3>
 
@@ -493,7 +490,6 @@
 
     </section>
 
-
     <!-- ================================= -->
     <!-- VIDEO                              -->
     <!-- ================================= -->
@@ -508,7 +504,6 @@
             sebagai standar untuk menampilkan video
             pada halaman web.
         </p>
-
 
         <h3>Contoh Video</h3>
 
@@ -525,7 +520,6 @@
             Browser Anda tidak mendukung elemen video.
 
         </video>
-
 
         <h3>Kontrol Video dengan JavaScript</h3>
 
@@ -602,7 +596,6 @@
 
     </section>
 
-
     <!-- ================================= -->
     <!-- YOUTUBE                            -->
     <!-- ================================= -->
@@ -648,11 +641,9 @@
         </p>
 
         <pre>
-```
 
 https://www.youtube.com/embed/jUrseGoOJYc?autoplay=1 </pre>
 
-```
         <h3>YouTube Loop</h3>
 
         <p>
@@ -661,11 +652,9 @@ https://www.youtube.com/embed/jUrseGoOJYc?autoplay=1 </pre>
         </p>
 
         <pre>
-```
 
 https://www.youtube.com/embed/jUrseGoOJYc?playlist=jUrseGoOJYc&amp;loop=1 </pre>
 
-```
         <h3>YouTube Controls</h3>
 
         <p>
@@ -674,13 +663,10 @@ https://www.youtube.com/embed/jUrseGoOJYc?playlist=jUrseGoOJYc&amp;loop=1 </pre>
         </p>
 
         <pre>
-```
 
 https://www.youtube.com/embed/jUrseGoOJYc?controls=0 </pre>
 
-```
     </section>
-
 
     <!-- ================================= -->
     <!-- GEOLOCATION API                    -->
@@ -704,20 +690,17 @@ https://www.youtube.com/embed/jUrseGoOJYc?controls=0 </pre>
 
         </div>
 
-
         <button onclick="getLocation()">
 
             📍 Dapatkan Lokasi Saya
 
         </button>
 
-
         <div id="locationResult">
 
             Lokasi belum diperiksa.
 
         </div>
-
 
         <h3>Data yang Diperoleh</h3>
 
@@ -793,13 +776,10 @@ https://www.youtube.com/embed/jUrseGoOJYc?controls=0 </pre>
         <h3>Konsep Geolocation</h3>
 
         <pre>
-```
 
 navigator.geolocation.getCurrentPosition(showPosition); </pre>
 
-```
     </section>
-
 
     <!-- ================================= -->
     <!-- DRAG AND DROP                      -->
@@ -814,53 +794,46 @@ navigator.geolocation.getCurrentPosition(showPosition); </pre>
             dipindahkan dengan cara menyeretnya.
         </p>
 
+       <h3>Contoh Drag and Drop</h3>
 
-        <h3>Contoh Drag and Drop</h3>
+<div class="drag-container">
 
+    <div
+        class="drop-area"
+        id="box1"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
 
-        <div class="drag-container">
+        <h3>Area 1</h3>
 
+        <p>
+            Seret gambar dari sini.
+        </p>
 
-            <div
-                class="drop-area"
-                id="box1"
-                ondrop="drop(event)"
-                ondragover="allowDrop(event)">
+        <img
+            id="dragItem"
+            src="image/Hollyberry.png"
+            alt="Gambar Drag and Drop"
+            draggable="true"
+            ondragstart="drag(event)">
 
-                <h3>Area 1</h3>
+    </div>
 
-                <p>
-                    Seret gambar dari sini.
-                </p>
+    <div
+        class="drop-area"
+        id="box2"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)">
 
+        <h3>Area 2</h3>
 
-                <img
-                    id="dragItem"
-                    src="image/Hollyberry.png">
-                    alt="Gambar Drag and Drop"
-                    draggable="true"
-                    ondragstart="drag(event)">
+        <p>
+            Letakkan gambar di sini.
+        </p>
 
-            </div>
+    </div>
 
-
-            <div
-                class="drop-area"
-                id="box2"
-                ondrop="drop(event)"
-                ondragover="allowDrop(event)">
-
-                <h3>Area 2</h3>
-
-                <p>
-                    Letakkan gambar di sini.
-                </p>
-
-            </div>
-
-
-        </div>
-
+</div>
 
         <h3>Konsep Drag and Drop</h3>
 
@@ -895,7 +868,6 @@ navigator.geolocation.getCurrentPosition(showPosition); </pre>
 
 
         <pre>
-```
 
 function allowDrop(ev) {
 ev.preventDefault();
@@ -908,17 +880,14 @@ ev.dataTransfer.setData("text", ev.target.id);
 function drop(ev) {
 ev.preventDefault();
 
-```
 var data = ev.dataTransfer.getData("text");
 
 ev.target.appendChild(
     document.getElementById(data)
 );
-```
 
 } </pre>
 
-```
     </section>
 
 
@@ -954,8 +923,6 @@ ev.target.appendChild(
         </p>
 
     </section>
-
-
 </main>
 
 
@@ -972,7 +939,6 @@ ev.target.appendChild(
     <p>
         Dibuat menggunakan HTML5, CSS internal, dan JavaScript internal.
     </p>
-
 </footer>
 
 
@@ -982,55 +948,42 @@ ev.target.appendChild(
 
 <script>
 
-
     // ================================
     // VIDEO
     // ================================
 
     var myVideo = document.getElementById("myVideo");
 
-
     function playVideo() {
 
         myVideo.play();
-
     }
-
 
     function pauseVideo() {
 
         myVideo.pause();
-
     }
-
 
     function makeBig() {
 
         myVideo.width = 800;
 
         myVideo.height = 450;
-
     }
-
 
     function makeSmall() {
 
         myVideo.width = 400;
 
         myVideo.height = 300;
-
     }
-
 
     function makeNormal() {
 
         myVideo.width = 600;
 
         myVideo.height = 350;
-
     }
-
-
 
     // ================================
     // GEOLOCATION
@@ -1040,7 +993,6 @@ ev.target.appendChild(
 
         var result =
             document.getElementById("locationResult");
-
 
         if (navigator.geolocation) {
 
@@ -1055,14 +1007,12 @@ ev.target.appendChild(
         }
 
         else {
-
             result.innerHTML =
                 "Geolocation tidak didukung oleh browser.";
 
         }
 
     }
-
 
     function showPosition(position) {
 
@@ -1074,7 +1024,6 @@ ev.target.appendChild(
 
         var accuracy =
             position.coords.accuracy;
-
 
         document.getElementById("locationResult").innerHTML =
 
@@ -1091,9 +1040,7 @@ ev.target.appendChild(
             "Akurasi: " +
             accuracy +
             " meter";
-
     }
-
 
     function showError(error) {
 
@@ -1110,14 +1057,12 @@ ev.target.appendChild(
 
                 break;
 
-
             case error.POSITION_UNAVAILABLE:
 
                 result.innerHTML =
                     "Informasi lokasi tidak tersedia.";
 
                 break;
-
 
             case error.TIMEOUT:
 
@@ -1126,57 +1071,34 @@ ev.target.appendChild(
 
                 break;
 
-
             default:
 
                 result.innerHTML =
                     "Terjadi kesalahan saat mengambil lokasi.";
-
         }
-
     }
-
-
 
     // ================================
     // DRAG AND DROP
     // ================================
-
+    
     function allowDrop(ev) {
-
         ev.preventDefault();
-
     }
-
 
     function drag(ev) {
-
-        ev.dataTransfer.setData(
-            "text",
-            ev.target.id
-        );
-
+        ev.dataTransfer.setData("text", ev.target.id);
     }
-
 
     function drop(ev) {
-
         ev.preventDefault();
-
-
-        var data =
-            ev.dataTransfer.getData("text");
-
-
-        ev.target.appendChild(
-            document.getElementById(data)
+        var data = ev.dataTransfer.getData("text");
+        ev.currentTarget.appendChild(
+        document.getElementById(data)
         );
-
     }
 
-
 </script>
-```
 
 </body>
 
