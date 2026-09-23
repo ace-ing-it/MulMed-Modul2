@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Praktikum Multimedia - Modul 2</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f8;
+        color: #222;
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: #1d3557;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    header h2 {
+        margin-top: 10px;
+        font-weight: normal;
+    }
+
+    nav {
+        background-color: #457b9d;
+        padding: 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 12px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    main {
+        max-width: 1100px;
+        margin: auto;
+        padding: 25px;
+    }
+
+    section {
+        background-color: white;
+        margin-bottom: 25px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    section h2 {
+        color: #1d3557;
+        border-bottom: 2px solid #457b9d;
+        padding-bottom: 8px;
+    }
+
+    section h3 {
+        color: #457b9d;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #bbb;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #1d3557;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f1f5f8;
+    }
+
+    code {
+        background-color: #eeeeee;
+        padding: 3px 6px;
+        border-radius: 4px;
+    }
+
+    pre {
+        background-color: #202124;
+        color: #f1f1f1;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+
+    audio {
+        width: 100%;
+        margin: 10px 0 20px;
+    }
+
+    video {
+        display: block;
+        max-width: 100%;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+
+    iframe {
+        display: block;
+        max-width: 100%;
+        margin: 20px auto;
+        border: none;
+        border-radius: 8px;
+    }
+
+    button {
+        background-color: #1d3557;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button:hover {
+        background-color: #457b9d;
+    }
+
+    #locationResult {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #edf6f9;
+        border-left: 5px solid #457b9d;
+        min-height: 30px;
+    }
+
+    .drag-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .drop-area {
+        flex: 1;
+        min-width: 250px;
+        min-height: 180px;
+        border: 3px dashed #457b9d;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        background-color: #f8fbfc;
+    }
+
+    .drop-area h3 {
+        margin-top: 0;
+    }
+
+    #dragItem {
+        width: 180px;
+        cursor: grab;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    footer {
+        background-color: #1d3557;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+    .info-box {
+        background-color: #edf6f9;
+        border-left: 5px solid #457b9d;
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    @media (max-width: 700px) {
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            display: block;
+            margin: 8px;
+        }
+
+        main {
+            padding: 10px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- HEADER -->
+
+<header>
+
+    <h1>Praktikum Multimedia</h1>
+
+    <h2>Modul 2: HTML Audio, Video, YouTube dan API</h2>
+
+    <p>
+        Pembelajaran Multimedia Berbasis HTML5
+    </p>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="#pengertian">Multimedia</a>
+
+    <a href="#audio">Audio</a>
+
+    <a href="#video">Video</a>
+
+    <a href="#youtube">YouTube</a>
+
+    <a href="#geolocation">Geolocation</a>
+
+    <a href="#dragdrop">Drag & Drop</a>
+
+</nav>
+
+
+<main>
+
+
+    <!-- ================================= -->
+    <!-- PENGERTIAN MULTIMEDIA              -->
+    <!-- ================================= -->
+
+    <section id="pengertian">
+
+        <h2>1. Pengertian Multimedia</h2>
+
+        <p>
+            Multimedia dalam web adalah suara, musik, video,
+            film, dan animasi. Multimedia dapat berupa sesuatu
+            yang dapat didengar atau dilihat.
+        </p>
+
+        <p>
+            Contoh multimedia:
+        </p>
+
+        <ul>
+
+            <li>Gambar</li>
+
+            <li>Musik</li>
+
+            <li>Suara</li>
+
+            <li>Video</li>
+
+            <li>Rekaman</li>
+
+            <li>Film</li>
+
+            <li>Animasi</li>
+
+        </ul>
+
+
+        <h3>Format Multimedia</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Format</th>
+
+                <th>Ekstensi</th>
+
+                <th>Keterangan</th>
+
+            </tr>
+
+            <tr>
+
+                <td>MP4</td>
+
+                <td>.mp4</td>
+
+                <td>Format video yang didukung HTML5.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>WebM</td>
+
+                <td>.webm</td>
+
+                <td>Format video yang didukung HTML5.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Ogg</td>
+
+                <td>.ogg</td>
+
+                <td>Format multimedia yang didukung HTML5.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>MP3</td>
+
+                <td>.mp3</td>
+
+                <td>Format audio yang populer.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>WAV</td>
+
+                <td>.wav</td>
+
+                <td>Format audio yang didukung HTML5.</td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- AUDIO                              -->
+    <!-- ================================= -->
+
+    <section id="audio">
+
+        <h2>2. Audio pada HTML5</h2>
+
+        <p>
+            HTML5 menyediakan elemen
+            <code>&lt;audio&gt;</code>
+            untuk menyematkan audio pada halaman web.
+        </p>
+
+
+        <h3>Contoh Audio</h3>
+
+        <audio controls>
+
+            <!-- Ganti dengan file audio milik Anda -->
+
+            <source src="audio-kamu.mp3" type="audio/mpeg">
+
+            <source src="audio-kamu.ogg" type="audio/ogg">
+
+            Browser Anda tidak mendukung elemen audio.
+
+        </audio>
+
+
+        <div class="info-box">
+
+            <strong>Catatan:</strong>
+
+            Letakkan file audio pada folder yang sama
+            dengan file <code>index.html</code>.
+
+        </div>
+
+
+        <h3>Format Audio HTML5</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Format</th>
+
+                <th>Ekstensi</th>
+
+                <th>Media Type</th>
+
+            </tr>
+
+            <tr>
+
+                <td>MP3</td>
+
+                <td>.mp3</td>
+
+                <td>audio/mpeg</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Ogg</td>
+
+                <td>.ogg</td>
+
+                <td>audio/ogg</td>
+
+            </tr>
+
+            <tr>
+
+                <td>WAV</td>
+
+                <td>.wav</td>
+
+                <td>audio/wav</td>
+
+            </tr>
+
+        </table>
+
+
+        <h3>Elemen Audio</h3>
+
+        <ul>
+
+            <li>
+                <code>&lt;audio&gt;</code>
+                mendefinisikan konten suara.
+            </li>
+
+            <li>
+                <code>&lt;source&gt;</code>
+                mendefinisikan sumber media.
+            </li>
+
+            <li>
+                <code>controls</code>
+                menampilkan tombol kontrol audio.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- VIDEO                              -->
+    <!-- ================================= -->
+
+    <section id="video">
+
+        <h2>3. Video pada HTML5</h2>
+
+        <p>
+            HTML5 menyediakan elemen
+            <code>&lt;video&gt;</code>
+            sebagai standar untuk menampilkan video
+            pada halaman web.
+        </p>
+
+
+        <h3>Contoh Video</h3>
+
+        <video
+            id="myVideo"
+            width="600"
+            height="350"
+            controls>
+
+            <!-- Ganti dengan file video milik Anda -->
+
+            <source src="video-kamu.mp4" type="video/mp4">
+
+            <source src="video-kamu.webm" type="video/webm">
+
+            Browser Anda tidak mendukung elemen video.
+
+        </video>
+
+
+        <h3>Kontrol Video dengan JavaScript</h3>
+
+        <p>
+
+            <button onclick="playVideo()">
+                Play
+            </button>
+
+            <button onclick="pauseVideo()">
+                Pause
+            </button>
+
+            <button onclick="makeBig()">
+                Perbesar
+            </button>
+
+            <button onclick="makeSmall()">
+                Perkecil
+            </button>
+
+            <button onclick="makeNormal()">
+                Normal
+            </button>
+
+        </p>
+
+
+        <h3>Format Video HTML5</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Format</th>
+
+                <th>Ekstensi</th>
+
+                <th>Media Type</th>
+
+            </tr>
+
+            <tr>
+
+                <td>MP4</td>
+
+                <td>.mp4</td>
+
+                <td>video/mp4</td>
+
+            </tr>
+
+            <tr>
+
+                <td>WebM</td>
+
+                <td>.webm</td>
+
+                <td>video/webm</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Ogg</td>
+
+                <td>.ogg</td>
+
+                <td>video/ogg</td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- YOUTUBE                            -->
+    <!-- ================================= -->
+
+    <section id="youtube">
+
+        <h2>4. YouTube Video</h2>
+
+        <p>
+            Video YouTube dapat ditampilkan pada halaman
+            HTML menggunakan elemen
+            <code>&lt;iframe&gt;</code>.
+        </p>
+
+
+        <h3>Contoh YouTube</h3>
+
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY"
+            title="YouTube Video"
+            allowfullscreen>
+        </iframe>
+
+
+        <h3>Struktur YouTube</h3>
+
+        <pre>
+```
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/VIDEO_ID"
+allowfullscreen>
+</iframe> </pre>
+
+```
+        <h3>YouTube Autoplay</h3>
+
+        <p>
+            Parameter <code>autoplay=1</code> dapat digunakan
+            untuk meminta video diputar secara otomatis.
+        </p>
+
+        <pre>
+```
+
+https://www.youtube.com/embed/VIDEO_ID?autoplay=1 </pre>
+
+```
+        <h3>YouTube Loop</h3>
+
+        <p>
+            Parameter <code>loop=1</code> dapat digunakan
+            untuk mengulang video.
+        </p>
+
+        <pre>
+```
+
+https://www.youtube.com/embed/VIDEO_ID?playlist=VIDEO_ID&amp;loop=1 </pre>
+
+```
+        <h3>YouTube Controls</h3>
+
+        <p>
+            Parameter <code>controls=0</code> dapat digunakan
+            untuk menyembunyikan kontrol player.
+        </p>
+
+        <pre>
+```
+
+https://www.youtube.com/embed/VIDEO_ID?controls=0 </pre>
+
+```
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- GEOLOCATION API                    -->
+    <!-- ================================= -->
+
+    <section id="geolocation">
+
+        <h2>5. HTML Geolocation API</h2>
+
+        <p>
+            Geolocation API digunakan untuk mendapatkan
+            posisi geografis pengguna.
+        </p>
+
+        <div class="info-box">
+
+            <strong>Privasi:</strong>
+
+            Browser akan meminta izin kepada pengguna
+            sebelum mengakses lokasi.
+
+        </div>
+
+
+        <button onclick="getLocation()">
+
+            📍 Dapatkan Lokasi Saya
+
+        </button>
+
+
+        <div id="locationResult">
+
+            Lokasi belum diperiksa.
+
+        </div>
+
+
+        <h3>Data yang Diperoleh</h3>
+
+        <table>
+
+            <tr>
+
+                <th>Property</th>
+
+                <th>Keterangan</th>
+
+            </tr>
+
+            <tr>
+
+                <td>latitude</td>
+
+                <td>Garis lintang dalam angka desimal.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>longitude</td>
+
+                <td>Garis bujur dalam angka desimal.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>accuracy</td>
+
+                <td>Akurasi posisi.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>altitude</td>
+
+                <td>Ketinggian jika tersedia.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>heading</td>
+
+                <td>Arah pergerakan jika tersedia.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>speed</td>
+
+                <td>Kecepatan jika tersedia.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>timestamp</td>
+
+                <td>Waktu data posisi diperoleh.</td>
+
+            </tr>
+
+        </table>
+
+
+        <h3>Konsep Geolocation</h3>
+
+        <pre>
+```
+
+navigator.geolocation.getCurrentPosition(showPosition); </pre>
+
+```
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- DRAG AND DROP                      -->
+    <!-- ================================= -->
+
+    <section id="dragdrop">
+
+        <h2>6. HTML Drag and Drop API</h2>
+
+        <p>
+            Drag and Drop API memungkinkan elemen HTML
+            dipindahkan dengan cara menyeretnya.
+        </p>
+
+
+        <h3>Contoh Drag and Drop</h3>
+
+
+        <div class="drag-container">
+
+
+            <div
+                class="drop-area"
+                id="box1"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+
+                <h3>Area 1</h3>
+
+                <p>
+                    Seret gambar dari sini.
+                </p>
+
+
+                <img
+                    id="dragItem"
+                    src="gambar-kamu.jpg"
+                    alt="Gambar Drag and Drop"
+                    draggable="true"
+                    ondragstart="drag(event)">
+
+            </div>
+
+
+            <div
+                class="drop-area"
+                id="box2"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+
+                <h3>Area 2</h3>
+
+                <p>
+                    Letakkan gambar di sini.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <h3>Konsep Drag and Drop</h3>
+
+        <ol>
+
+            <li>
+                Elemen menggunakan
+                <code>draggable="true"</code>.
+            </li>
+
+            <li>
+                <code>ondragstart</code>
+                dijalankan ketika proses drag dimulai.
+            </li>
+
+            <li>
+                <code>dataTransfer.setData()</code>
+                menyimpan data elemen yang dipindahkan.
+            </li>
+
+            <li>
+                <code>ondragover</code>
+                menentukan area yang menerima drop.
+            </li>
+
+            <li>
+                <code>ondrop</code>
+                dijalankan ketika elemen dilepaskan.
+            </li>
+
+        </ol>
+
+
+        <pre>
+```
+
+function allowDrop(ev) {
+ev.preventDefault();
+}
+
+function drag(ev) {
+ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+ev.preventDefault();
+
+```
+var data = ev.dataTransfer.getData("text");
+
+ev.target.appendChild(
+    document.getElementById(data)
+);
+```
+
+} </pre>
+
+```
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- KESIMPULAN                         -->
+    <!-- ================================= -->
+
+    <section>
+
+        <h2>7. Kesimpulan</h2>
+
+        <p>
+            HTML5 menyediakan berbagai elemen multimedia
+            yang dapat digunakan untuk membuat halaman web
+            interaktif.
+        </p>
+
+        <p>
+            Elemen <code>&lt;audio&gt;</code> digunakan untuk
+            audio, sedangkan <code>&lt;video&gt;</code>
+            digunakan untuk video.
+        </p>
+
+        <p>
+            Video YouTube dapat disematkan menggunakan
+            <code>&lt;iframe&gt;</code>.
+        </p>
+
+        <p>
+            HTML5 juga menyediakan API seperti
+            Geolocation API dan Drag and Drop API yang
+            dapat digunakan bersama JavaScript.
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>Praktikum Multimedia</h3>
+
+    <p>
+        Modul 2 - HTML Audio, Video, YouTube dan API
+    </p>
+
+    <p>
+        Dibuat menggunakan HTML5, CSS internal, dan JavaScript internal.
+    </p>
+
+</footer>
+
+
+<!-- ================================= -->
+<!-- JAVASCRIPT                         -->
+<!-- ================================= -->
+
+<script>
+
+
+    // ================================
+    // VIDEO
+    // ================================
+
+    var myVideo = document.getElementById("myVideo");
+
+
+    function playVideo() {
+
+        myVideo.play();
+
+    }
+
+
+    function pauseVideo() {
+
+        myVideo.pause();
+
+    }
+
+
+    function makeBig() {
+
+        myVideo.width = 800;
+
+        myVideo.height = 450;
+
+    }
+
+
+    function makeSmall() {
+
+        myVideo.width = 400;
+
+        myVideo.height = 300;
+
+    }
+
+
+    function makeNormal() {
+
+        myVideo.width = 600;
+
+        myVideo.height = 350;
+
+    }
+
+
+
+    // ================================
+    // GEOLOCATION
+    // ================================
+
+    function getLocation() {
+
+        var result =
+            document.getElementById("locationResult");
+
+
+        if (navigator.geolocation) {
+
+            result.innerHTML =
+                "Sedang mengambil lokasi...";
+
+            navigator.geolocation.getCurrentPosition(
+                showPosition,
+                showError
+            );
+
+        }
+
+        else {
+
+            result.innerHTML =
+                "Geolocation tidak didukung oleh browser.";
+
+        }
+
+    }
+
+
+    function showPosition(position) {
+
+        var latitude =
+            position.coords.latitude;
+
+        var longitude =
+            position.coords.longitude;
+
+        var accuracy =
+            position.coords.accuracy;
+
+
+        document.getElementById("locationResult").innerHTML =
+
+            "<strong>Lokasi berhasil ditemukan!</strong><br><br>" +
+
+            "Latitude: " +
+            latitude +
+            "<br>" +
+
+            "Longitude: " +
+            longitude +
+            "<br>" +
+
+            "Akurasi: " +
+            accuracy +
+            " meter";
+
+    }
+
+
+    function showError(error) {
+
+        var result =
+            document.getElementById("locationResult");
+
+
+        switch (error.code) {
+
+            case error.PERMISSION_DENIED:
+
+                result.innerHTML =
+                    "Pengguna menolak permintaan lokasi.";
+
+                break;
+
+
+            case error.POSITION_UNAVAILABLE:
+
+                result.innerHTML =
+                    "Informasi lokasi tidak tersedia.";
+
+                break;
+
+
+            case error.TIMEOUT:
+
+                result.innerHTML =
+                    "Permintaan lokasi mengalami timeout.";
+
+                break;
+
+
+            default:
+
+                result.innerHTML =
+                    "Terjadi kesalahan saat mengambil lokasi.";
+
+        }
+
+    }
+
+
+
+    // ================================
+    // DRAG AND DROP
+    // ================================
+
+    function allowDrop(ev) {
+
+        ev.preventDefault();
+
+    }
+
+
+    function drag(ev) {
+
+        ev.dataTransfer.setData(
+            "text",
+            ev.target.id
+        );
+
+    }
+
+
+    function drop(ev) {
+
+        ev.preventDefault();
+
+
+        var data =
+            ev.dataTransfer.getData("text");
+
+
+        ev.target.appendChild(
+            document.getElementById(data)
+        );
+
+    }
+
+
+</script>
+```
+
+</body>
+
+</html>
